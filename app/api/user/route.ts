@@ -1,9 +1,14 @@
 import { NextResponse } from "next/server";
 
 export async function POST(req: Request) {
-  const body = await req.json();
+  const {email, password} = await req.json();
   return NextResponse.json({
     status: 200,
-    data: body,
+    data: email, password,
+    meta: {
+      body: req
+    }
   });
 }
+
+
